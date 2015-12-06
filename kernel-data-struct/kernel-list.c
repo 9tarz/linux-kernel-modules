@@ -23,13 +23,15 @@ struct birthday {
 int birthday_list_init(void)
 {
 	struct birthday *person;
-	person = kmalloc(sizeof(*person), GFP_KERNEL);
-	person->day = 2;
-	person->month = 8;
-	person->year = 1995;
-
-	INIT_LIST_HEAD(&person->list);
-	list_add_tail(&person->list, &birthday_list);
+	int i;
+	for(i = 0; i < 5 ;i++) {
+		person = kmalloc(sizeof(*person), GFP_KERNEL);
+		person->day = 2+i;
+		person->month = 8;
+		person->year = 1995;
+		INIT_LIST_HEAD(&person->list);
+		list_add_tail(&person->list, &birthday_list);
+	}
 
 	printk(KERN_INFO "Loading Module\n");
 	printk(KERN_INFO "This list be constructed\n");
