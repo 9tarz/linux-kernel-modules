@@ -3,6 +3,8 @@
 #include <linux/kernel.h>
 #include <linux/module.h>
 
+#include<linux/sched/signal.h> //  for "for_each_process" Macro
+
 
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR("Kanatip Chitavisutthivong");
